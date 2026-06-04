@@ -6,8 +6,8 @@ layout: default
 <section class="hero home-hero is-large"{% if site.hero_image and site.hero_image != "" %} style="background-image: url('{{ site.hero_image | relative_url }}');"{% endif %}>
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title is-1 has-text-white">{{ site.title }}</h1>
-      <p class="subtitle is-5 has-text-white mt-4">{{ site.description }}</p>
+      <h1 class="title has-text-white">{{ site.title }}</h1>
+      <p class="subtitle has-text-white mt-5">{{ site.description }}</p>
       <div class="buttons is-centered mt-6">
         <a href="{{ '/events/' | relative_url }}" class="button is-gold is-medium">
           View Events
@@ -24,12 +24,12 @@ layout: default
 {% if site.data.upcoming-events.size > 0 %}
 <section class="section">
   <div class="container">
-    <div class="has-text-centered mb-6">
+    <div class="has-text-centered mb-6 reveal">
       <h2 class="title is-3 section-heading">Upcoming Events</h2>
     </div>
     <div class="columns is-multiline is-centered">
       {% for event in site.data.upcoming-events limit:3 %}
-      <div class="column is-4">
+      <div class="column is-4 reveal reveal-delay-{{ forloop.index }}">
         <div class="card event-card">
           <div class="card-content">
             <p class="title is-5 mb-2">{{ event.title }}</p>
@@ -77,8 +77,8 @@ layout: default
       </div>
       {% endfor %}
     </div>
-    <div class="has-text-centered mt-5">
-      <a href="{{ '/events/' | relative_url }}" class="button is-link is-outlined">All Events</a>
+    <div class="has-text-centered mt-5 reveal">
+      <a href="{{ '/events/' | relative_url }}" class="button is-link is-outlined">&raquo; All Events</a>
     </div>
   </div>
 </section>
@@ -89,7 +89,7 @@ layout: default
 {% if recent_posts.size > 0 %}
 <section class="section section-alt">
   <div class="container">
-    <div class="has-text-centered mb-6">
+    <div class="has-text-centered mb-6 reveal">
       <h2 class="title is-3 section-heading">Latest Posts</h2>
     </div>
     <div class="columns is-multiline is-centered">
@@ -97,8 +97,8 @@ layout: default
         {% include post-card.html post=post %}
       {% endfor %}
     </div>
-    <div class="has-text-centered mt-5">
-      <a href="{{ '/blog/' | relative_url }}" class="button is-link is-outlined">All Posts</a>
+    <div class="has-text-centered mt-5 reveal">
+      <a href="{{ '/blog/' | relative_url }}" class="button is-link is-outlined">&raquo; All Posts</a>
     </div>
   </div>
 </section>

@@ -56,7 +56,11 @@ nav_links:
 #   "Lato"         — warm, elegant, approachable
 #   "Poppins"      — geometric, contemporary
 #   "Montserrat"   — sleek, urban, versatile
-font: "Inter"
+#   "Roboto"       — Google's signature font, neutral and clean
+#   "DM Sans"      — low-contrast geometric, great for headings
+#   "Nunito"       — rounded, soft, welcoming
+#   "Ubuntu"       — distinctive, humanist, open-source spirit
+font: "Ubuntu"
 
 colors:
   primary: "#1A5632"
