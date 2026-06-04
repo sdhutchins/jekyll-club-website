@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body class="site-body">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  {% include navbar.html %}
+
+  <main id="main-content" class="site-content">
+    {{ content }}
+  </main>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <span class="icon"><i class="fas fa-chevron-up"></i></span>
+  </button>
+
+  {% include footer.html %}
+<script>
+document.querySelectorAll('main img:not([loading])').forEach(function(img){img.loading='lazy';});
+
+(function(){
+  var btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){
+    btn.classList.toggle('is-visible', window.scrollY > 400);
+  });
+  btn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>

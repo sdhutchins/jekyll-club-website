@@ -1,0 +1,107 @@
+---
+layout: default
+---
+
+<!-- Hero -->
+<section class="hero home-hero is-large"{% if site.hero_image and site.hero_image != "" %} style="background-image: url('{{ site.hero_image | relative_url }}');"{% endif %}>
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1 has-text-white">{{ site.title }}</h1>
+      <p class="subtitle is-5 has-text-white mt-4">{{ site.description }}</p>
+      <div class="buttons is-centered mt-6">
+        <a href="{{ '/events/' | relative_url }}" class="button is-gold is-medium">
+          View Events
+        </a>
+        <a href="{{ '/contact/' | relative_url }}" class="button is-outlined is-white is-medium">
+          Get Involved
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming events -->
+{% if site.data.upcoming-events.size > 0 %}
+<section class="section">
+  <div class="container">
+    <div class="has-text-centered mb-6">
+      <h2 class="title is-3 section-heading">Upcoming Events</h2>
+    </div>
+    <div class="columns is-multiline is-centered">
+      {% for event in site.data.upcoming-events limit:3 %}
+      <div class="column is-4">
+        <div class="card event-card">
+          <div class="card-content">
+            <p class="title is-5 mb-2">{{ event.title }}</p>
+            <p class="is-size-7 has-text-weight-semibold has-text-grey-dark mb-3">{{ event.name }}</p>
+            <div class="event-meta">
+              <p class="mb-1">
+                <span class="icon-text">
+                  <span class="icon"><i class="fas fa-calendar"></i></span>
+                  <span>{{ event.date }}</span>
+                </span>
+              </p>
+              <p class="mb-1">
+                <span class="icon-text">
+                  <span class="icon"><i class="fas fa-clock"></i></span>
+                  <span>{{ event.time }}</span>
+                </span>
+              </p>
+              <p>
+                <span class="icon-text">
+                  <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                  <span>{{ event.location }} &middot; {{ event.mode }}</span>
+                </span>
+              </p>
+            </div>
+          </div>
+          <footer class="card-footer">
+            {% if event.zoom %}
+            <a href="{{ event.zoom }}" class="card-footer-item" target="_blank" rel="noopener">
+              <span class="icon"><i class="fas fa-video"></i></span>
+              <span>Zoom</span>
+            </a>
+            {% else %}
+            <span class="card-footer-item has-text-grey-light">{{ event.mode }}</span>
+            {% endif %}
+            {% assign cal_subject = event.title | default: event.name | uri_escape %}
+            {% assign cal_location = event.location | default: "" | uri_escape %}
+            {% assign cal_body = event.name | uri_escape %}
+            <a href="https://outlook.office.com/calendar/0/action/compose?subject={{ cal_subject }}&location={{ cal_location }}&body={{ cal_body }}{% if event.start_datetime %}&startdt={{ event.start_datetime }}{% endif %}{% if event.end_datetime %}&enddt={{ event.end_datetime }}{% endif %}"
+               class="card-footer-item" target="_blank" rel="noopener" title="Add to Outlook Calendar">
+              <span class="icon"><i class="fas fa-calendar-plus"></i></span>
+              <span>Add to Calendar</span>
+            </a>
+          </footer>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="has-text-centered mt-5">
+      <a href="{{ '/events/' | relative_url }}" class="button is-link is-outlined">All Events</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Latest posts -->
+{% assign recent_posts = site.posts | slice: 0, 3 %}
+{% if recent_posts.size > 0 %}
+<section class="section section-alt">
+  <div class="container">
+    <div class="has-text-centered mb-6">
+      <h2 class="title is-3 section-heading">Latest Posts</h2>
+    </div>
+    <div class="columns is-multiline is-centered">
+      {% for post in recent_posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+    <div class="has-text-centered mt-5">
+      <a href="{{ '/blog/' | relative_url }}" class="button is-link is-outlined">All Posts</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{{ content }}

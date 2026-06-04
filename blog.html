@@ -1,0 +1,12 @@
+---
+layout: page
+title: Blog
+subtitle: Event recaps, presentations, and club updates.
+permalink: /blog/
+---
+
+<div class="columns is-multiline">
+  {% for post in site.posts %}
+    {% include post-card.html post=post %}
+  {% endfor %}
+</div>

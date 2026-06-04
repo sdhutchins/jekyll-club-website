@@ -1,0 +1,132 @@
+---
+layout: default
+---
+
+<section class="hero page-hero is-medium">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-2 has-text-white">{{ page.title }}</h1>
+      {% if page.subtitle %}
+      <p class="subtitle is-5 has-text-white">{{ page.subtitle }}</p>
+      {% endif %}
+      {% assign words = content | number_of_words %}
+      {% assign minutes = words | divided_by: 200 %}
+      {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+      <p class="has-text-white is-size-6 mt-3">
+        <span class="icon"><i class="fas fa-calendar-alt"></i></span>
+        {{ page.date | date: "%B %-d, %Y" }}
+        <span class="ml-4">
+          <span class="icon"><i class="fas fa-clock"></i></span>
+          {{ minutes }} min read
+        </span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          {{ content }}
+        </div>
+
+        {% if page.tags.size > 0 %}
+        <div class="field is-grouped is-grouped-multiline mt-5">
+          {% for tag in page.tags %}
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag is-campus-green">{{ tag }}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% assign post_url = page.url | absolute_url %}
+        {% assign post_title = page.title | uri_escape %}
+
+        <div class="share-buttons mt-5 mb-2">
+          <p class="is-size-7 has-text-grey has-text-weight-semibold mb-3">SHARE</p>
+          <div class="buttons">
+            <a href="https://twitter.com/intent/tweet?url={{ post_url }}&text={{ post_title }}"
+               target="_blank" rel="noopener" class="button is-small is-rounded share-btn"
+               aria-label="Share on X">
+              <span class="icon"><i class="fab fa-x-twitter"></i></span>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ post_url }}"
+               target="_blank" rel="noopener" class="button is-small is-rounded share-btn"
+               aria-label="Share on LinkedIn">
+              <span class="icon"><i class="fab fa-linkedin-in"></i></span>
+            </a>
+            <a href="mailto:?subject={{ post_title }}&body=Check out this post: {{ post_url }}"
+               class="button is-small is-rounded share-btn"
+               aria-label="Share via email">
+              <span class="icon"><i class="fas fa-envelope"></i></span>
+            </a>
+            <button class="button is-small is-rounded share-btn" id="copy-link-btn"
+                    aria-label="Copy link" onclick="navigator.clipboard.writeText('{{ post_url }}').then(function(){var b=document.getElementById('copy-link-btn');b.classList.add('is-success');b.querySelector('i').className='fas fa-check';setTimeout(function(){b.classList.remove('is-success');b.querySelector('i').className='fas fa-link';},2000);});">
+              <span class="icon"><i class="fas fa-link"></i></span>
+            </button>
+          </div>
+        </div>
+
+        {% if site.license and site.license != "" %}
+        <div class="cite-reuse-section mt-4 mb-4">
+          <p class="is-size-7 has-text-grey has-text-weight-semibold mb-2">REUSE & CITATION</p>
+          <p class="is-size-7 mb-3">
+            Licensed under
+            <a href="https://creativecommons.org/licenses/{{ site.license | downcase | replace: 'cc ', '' | replace: ' ', '/' }}/" target="_blank" rel="noopener license">{{ site.license }}</a>.
+            Please cite as:
+          </p>
+          <blockquote class="cite-block">
+            {{ site.author }}. {{ page.date | date: "%Y" }}. "{{ page.title }}."
+            {{ page.date | date: "%B %-d" }}.
+            <a href="{{ post_url }}">{{ post_url }}</a>.
+          </blockquote>
+          <details class="mt-3">
+            <summary class="is-size-7 has-text-weight-semibold">BibTeX</summary>
+            <pre class="mt-2 is-size-7"><code>@online{ {{- site.title | downcase | replace: " ", "" -}}{{ page.date | date: "%Y" }},
+  author = { {{- site.author -}} },
+  title = { {{- page.title -}} },
+  date = { {{- page.date | date: "%Y-%m-%d" -}} },
+  url = { {{- post_url -}} }
+}</code></pre>
+          </details>
+        </div>
+        {% endif %}
+
+        {% if site.github_repo and site.github_repo != "" %}
+        <p class="is-size-7 has-text-grey mt-4">
+          <a href="https://github.com/{{ site.github_repo }}/edit/main/{{ page.path }}" target="_blank" rel="noopener">
+            <span class="icon is-small"><i class="fas fa-pen"></i></span>
+            Edit this post on GitHub
+          </a>
+        </p>
+        {% endif %}
+
+        <hr>
+
+        <nav class="level post-nav">
+          <div class="level-left">
+            {% if page.previous %}
+            <a href="{{ page.previous.url | relative_url }}" class="button is-small is-link is-outlined">
+              <span class="icon"><i class="fas fa-arrow-left"></i></span>
+              <span>{{ page.previous.title }}</span>
+            </a>
+            {% endif %}
+          </div>
+          <div class="level-right">
+            {% if page.next %}
+            <a href="{{ page.next.url | relative_url }}" class="button is-small is-link is-outlined">
+              <span>{{ page.next.title }}</span>
+              <span class="icon"><i class="fas fa-arrow-right"></i></span>
+            </a>
+            {% endif %}
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

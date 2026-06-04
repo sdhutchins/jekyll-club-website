@@ -1,0 +1,16 @@
+# Previous executive board members
+# Fields: name, role, years (required); current_position, github,
+#         linkedin, bluesky, website (all optional)
+
+- name: Former President
+  role: President
+  years: "2023-2024"
+  current_position: Data Scientist at Acme Corp
+  linkedin: formerpresident
+  github: formerpres
+
+- name: Former VP
+  role: Vice President
+  years: "2023-2024"
+  current_position: Postdoctoral Fellow, University of Example
+  linkedin: formervp

@@ -1,0 +1,127 @@
+# =============================================================================
+# CUSTOMIZE THESE VALUES FOR YOUR ORGANIZATION
+# =============================================================================
+
+# Site settings
+title: Your Club Name
+description: >-
+  A brief description of your student organization, its mission, and what
+  members can expect. This appears on the homepage and in search results.
+author: Your Club Name
+email: yourclub@university.edu
+url: "https://yourorg.github.io"
+baseurl: ""
+
+# Logo (place your logo in assets/img/ and update the path)
+logo: /assets/img/logo-placeholder.svg
+
+# Hero background image (optional, leave blank to use the default gradient)
+# Place your image in assets/img/ and set the path here.
+# A dark overlay is applied automatically so white text stays readable.
+hero_image: ""
+
+# Navigation links (displayed in navbar, edit titles and URLs as needed)
+nav_links:
+  - title: Home
+    url: /
+  - title: Blog
+    url: /blog/
+  - title: Events
+    url: /events/
+  - title: Resources
+    url: /resources/
+  - title: Executive Board
+    url: /executive-board/
+  - title: About
+    url: /about/
+  - title: Contact
+    url: /contact/
+
+# Theme colors
+# Set your school/organization's 2-3 main colors here. The entire site
+# (navbar, hero, footer, buttons, links, tags, tables) adapts automatically.
+#
+# Presets for reference:
+#   UAB:   primary: "#1A5632"  accent: "#FDB913"  dark: "#033319"
+#   Emory: primary: "#012169"  accent: "#F2A900"  dark: "#00122e"
+#
+# - primary: Main brand color (navbar text, footer, hero, links, tables)
+# - accent:  Secondary color (CTA buttons, hover highlights, heading accents)
+# - dark:    Darkened variant of primary (hero gradient endpoint, hover states)
+#            If omitted, a default darkened version of primary is used.
+# Font
+# Pick one of the following Google Fonts for your site's typeface:
+#   "Inter"        — clean, modern, designed for screens (default)
+#   "Open Sans"    — friendly, highly readable
+#   "Lato"         — warm, elegant, approachable
+#   "Poppins"      — geometric, contemporary
+#   "Montserrat"   — sleek, urban, versatile
+font: "Inter"
+
+colors:
+  primary: "#1A5632"
+  accent: "#FDB913"
+  dark: "#033319"
+
+# License for blog posts (shown in Reuse & Citation section)
+# Common options: "CC BY 4.0", "CC BY-SA 4.0", "CC BY-NC 4.0", "All rights reserved"
+# Leave blank to hide the reuse/citation section entirely.
+license: "CC BY 4.0"
+
+# GitHub repository (enables "Edit this post" links on blog posts)
+# Format: username/repo-name
+github_repo: "your-org/your-repo"
+
+# Social media links (leave blank or remove lines you don't use)
+social:
+  email: yourclub@university.edu
+  instagram: your_club_handle
+  twitter: your_club_handle
+  github: your-org
+  youtube: ""
+  engage: ""  # student org page URL (e.g., https://engage.university.edu/org/your-club)
+
+# =============================================================================
+# BUILD SETTINGS (you likely don't need to change these)
+# =============================================================================
+
+timezone: America/Chicago
+markdown: kramdown
+highlighter: rouge
+permalink: /:year-:month-:day-:title/
+paginate: 6
+paginate_path: "/blog/page:num/"
+
+kramdown:
+  input: GFM
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - CHANGELOG.md
+  - vendor/
+  - node_modules/
+  - .ruby-version

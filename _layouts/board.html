@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+{% include hero.html %}
+
+<section class="section">
+  <div class="container">
+    {% assign stripped = content | strip %}
+    {% if stripped != "" %}
+    <div class="content mb-6">
+      {{ content }}
+    </div>
+    {% endif %}
+
+    <div class="columns is-multiline is-centered board-grid">
+      {% for member in site.data.board %}
+      <div class="column is-one-fifth-desktop is-3-tablet is-half-mobile is-flex">
+        <div class="card board-card">
+          <div class="card-image">
+            <figure class="image is-square">
+              <img class="board-photo" src="{{ member.image | relative_url }}" alt="{{ member.name }}" loading="lazy">
+            </figure>
+          </div>
+          <div class="card-content has-text-centered">
+            <p class="title is-6 mb-1">{{ member.name }}</p>
+            <p class="subtitle is-7 has-text-grey mb-1">{{ member.role }}</p>
+            {% if member.title %}
+            <p class="is-size-7 has-text-grey-light">{{ member.title }}</p>
+            {% endif %}
+            <div class="board-links mt-2">
+              {% if member.github %}
+              <a href="https://github.com/{{ member.github }}" target="_blank" rel="noopener" aria-label="{{ member.name }} GitHub">
+                <span class="icon"><i class="fab fa-github"></i></span>
+              </a>
+              {% endif %}
+              {% if member.linkedin %}
+              <a href="https://linkedin.com/in/{{ member.linkedin }}" target="_blank" rel="noopener" aria-label="{{ member.name }} LinkedIn">
+                <span class="icon"><i class="fab fa-linkedin"></i></span>
+              </a>
+              {% endif %}
+              {% if member.bluesky %}
+              <a href="https://bsky.app/profile/{{ member.bluesky }}" target="_blank" rel="noopener" aria-label="{{ member.name }} Bluesky">
+                <span class="icon"><i class="fab fa-bluesky"></i></span>
+              </a>
+              {% endif %}
+              {% if member.website %}
+              <a href="{{ member.website }}" target="_blank" rel="noopener" aria-label="{{ member.name }} Website">
+                <span class="icon"><i class="fas fa-globe"></i></span>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+# Executive board members
+# Add your team here. Place member photos in assets/img/.
+# All link fields are optional: github, linkedin, bluesky, website
+
+- name: Jane Doe
+  role: President
+  title: PhD Candidate
+  image: /assets/img/placeholder-avatar.svg
+  github: janedoe
+  linkedin: janedoe
+  bluesky: janedoe.bsky.social
+
+- name: John Smith
+  role: Vice President
+  title: MS Student
+  image: /assets/img/placeholder-avatar.svg
+  linkedin: johnsmith
+
+- name: Alex Johnson
+  role: Secretary
+  title: PhD Student
+  image: /assets/img/placeholder-avatar.svg
+  github: alexj
+  website: https://alexj.dev
+
+- name: Sam Rivera
+  role: Treasurer
+  title: Undergraduate
+  image: /assets/img/placeholder-avatar.svg
+
+- name: Dr. Faculty Advisor
+  role: Faculty Advisor
+  title: Associate Professor
+  image: /assets/img/placeholder-avatar.svg
+  github: facultyadvisor
+  website: https://faculty.university.edu/advisor

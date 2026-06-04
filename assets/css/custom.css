@@ -1,0 +1,494 @@
+/* ----------------------------------------------------------------
+   Theme colors — driven by _config.yml `colors:` section.
+   Injected as --color-primary, --color-accent, --color-dark
+   via _includes/head.html. Fallbacks defined here for safety.
+   ---------------------------------------------------------------- */
+:root {
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --color-primary: #1A5632;
+  --color-accent: #FDB913;
+  --color-dark: #033319;
+  --light-bg: #f9fafb;
+}
+
+/* ----------------------------------------------------------------
+   Skip-to-content (accessibility)
+   ---------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 0 0 4px 4px;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+  color: #fff;
+}
+
+html, body,
+.title, .subtitle,
+.button, .input, .textarea, .select select,
+.navbar-item, .navbar-link {
+  font-family: var(--font-family);
+}
+
+/* ----------------------------------------------------------------
+   Navbar — white, clean, primary-colored text
+   ---------------------------------------------------------------- */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-item,
+.navbar-link {
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.navbar-item:hover,
+.navbar-item.is-active {
+  background-color: transparent;
+  color: var(--color-accent);
+}
+
+.navbar-item.is-active {
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.navbar-burger {
+  color: var(--color-primary);
+}
+
+@media screen and (max-width: 1023px) {
+  .navbar-menu {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+  .navbar-menu .navbar-item {
+    color: var(--color-primary);
+  }
+  .navbar-item.is-active {
+    border-bottom: none;
+    color: var(--color-accent);
+  }
+}
+
+body {
+  padding-top: 3.25rem;
+}
+
+.site-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-content {
+  flex: 1;
+}
+
+/* ----------------------------------------------------------------
+   Hero — gradient default, optional background image
+   ---------------------------------------------------------------- */
+.home-hero {
+  background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-dark) 100%);
+  background-size: cover;
+  background-position: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.home-hero[style*="background-image"] {
+  background-blend-mode: normal;
+}
+
+.home-hero[style*="background-image"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.home-hero .hero-body {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero {
+  background: linear-gradient(160deg, var(--color-primary) 0%, var(--color-dark) 100%);
+}
+
+.home-hero .title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.home-hero .subtitle {
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.home-logo {
+  max-height: 80px;
+  width: auto;
+}
+
+/* ----------------------------------------------------------------
+   Buttons
+   ---------------------------------------------------------------- */
+.button.is-gold {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-primary);
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.button.is-gold:hover {
+  filter: brightness(0.9);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button.is-link.is-outlined {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 4px;
+}
+
+.button.is-link.is-outlined:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* ----------------------------------------------------------------
+   Section rhythm
+   ---------------------------------------------------------------- */
+.section-alt {
+  background-color: var(--light-bg);
+}
+
+.section-heading {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+}
+
+/* ----------------------------------------------------------------
+   Link styling
+   ---------------------------------------------------------------- */
+.content a,
+a.has-text-link {
+  color: var(--color-primary);
+}
+
+.content a:hover,
+a.has-text-link:hover {
+  color: var(--color-dark);
+}
+
+/* ----------------------------------------------------------------
+   Event cards
+   ---------------------------------------------------------------- */
+.event-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.event-card .card-content {
+  flex: 1;
+}
+
+.event-meta {
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.event-meta .icon {
+  color: var(--color-primary);
+}
+
+/* ----------------------------------------------------------------
+   Post cards
+   ---------------------------------------------------------------- */
+.post-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.post-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.post-card .card-content {
+  flex: 1;
+}
+
+.post-card .title a {
+  color: var(--color-primary);
+  transition: color 0.15s ease;
+}
+
+.post-card .title a:hover {
+  color: var(--color-accent);
+}
+
+.card-footer-item {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.card-footer-item:hover {
+  background-color: var(--light-bg);
+  color: var(--color-dark);
+}
+
+/* ----------------------------------------------------------------
+   Cite & Reuse
+   ---------------------------------------------------------------- */
+.cite-reuse-section {
+  background-color: var(--light-bg);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+}
+
+.cite-block {
+  font-size: 0.85rem;
+  border-left: 3px solid var(--color-accent);
+  padding: 0.5rem 0.75rem;
+  margin: 0;
+  background: #fff;
+  border-radius: 0 4px 4px 0;
+}
+
+.cite-reuse-section pre {
+  background-color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.cite-reuse-section a {
+  color: var(--color-primary);
+}
+
+.cite-reuse-section a:hover {
+  color: var(--color-dark);
+}
+
+.cite-reuse-section details summary {
+  cursor: pointer;
+}
+
+/* ----------------------------------------------------------------
+   Share buttons
+   ---------------------------------------------------------------- */
+.share-btn {
+  color: var(--color-primary);
+  border-color: #dbdbdb;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.share-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-dark);
+}
+
+/* ----------------------------------------------------------------
+   Tags
+   ---------------------------------------------------------------- */
+.tag.is-campus-green {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+/* ----------------------------------------------------------------
+   Board cards
+   ---------------------------------------------------------------- */
+.board-grid {
+  justify-content: center;
+}
+
+.board-card {
+  width: 100%;
+  height: 100%;
+  transition: box-shadow 0.2s ease;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.board-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.board-card .card-image {
+  overflow: hidden;
+}
+
+.board-photo {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.board-card .card-content {
+  padding: 0.75rem 0.75rem 1rem;
+}
+
+.board-links a {
+  color: var(--color-primary);
+  margin: 0 0.2rem;
+  transition: color 0.15s ease;
+}
+
+.board-links a:hover {
+  color: var(--color-accent);
+}
+
+@media screen and (max-width: 768px) {
+  .board-grid {
+    justify-content: center;
+  }
+  .board-grid > .column {
+    max-width: 200px;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Footer
+   ---------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-primary);
+  padding: 2rem 1.5rem;
+}
+
+.footer-text {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.footer-icon {
+  color: rgba(255, 255, 255, 0.7);
+  margin-left: 0.75rem;
+  font-size: 1.25rem;
+  transition: color 0.15s ease;
+}
+
+.footer-icon:hover {
+  color: var(--color-accent);
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-social {
+    justify-content: center;
+    margin-top: 0.75rem;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Tables
+   ---------------------------------------------------------------- */
+.table thead th,
+.table thead th.is-selected {
+  background-color: var(--color-primary);
+  color: #fff !important;
+  border-color: var(--color-primary);
+}
+
+.table thead th a {
+  color: #fff !important;
+}
+
+/* ----------------------------------------------------------------
+   Pagination
+   ---------------------------------------------------------------- */
+.pagination-link.is-current {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.pagination-link:hover {
+  border-color: var(--color-accent);
+  color: var(--color-primary);
+}
+
+/* ----------------------------------------------------------------
+   Back-to-top button
+   ---------------------------------------------------------------- */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--color-dark);
+  transform: translateY(-2px);
+}

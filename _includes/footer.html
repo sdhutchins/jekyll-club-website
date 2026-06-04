@@ -1,0 +1,45 @@
+<footer class="footer site-footer">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column has-text-centered-mobile">
+        <p class="footer-text">
+          &copy; {{ site.time | date: '%Y' }} {{ site.title }}
+        </p>
+      </div>
+      <div class="column has-text-right has-text-centered-mobile">
+        <div class="footer-social">
+          {% if site.social.email %}
+          <a href="mailto:{{ site.social.email }}" aria-label="Email" class="footer-icon">
+            <span class="icon"><i class="fas fa-envelope"></i></span>
+          </a>
+          {% endif %}
+          {% if site.social.instagram %}
+          <a href="https://instagram.com/{{ site.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram" class="footer-icon">
+            <span class="icon"><i class="fab fa-instagram"></i></span>
+          </a>
+          {% endif %}
+          {% if site.social.twitter %}
+          <a href="https://twitter.com/{{ site.social.twitter }}" target="_blank" rel="noopener" aria-label="X / Twitter" class="footer-icon">
+            <span class="icon"><i class="fab fa-x-twitter"></i></span>
+          </a>
+          {% endif %}
+          {% if site.social.github %}
+          <a href="https://github.com/{{ site.social.github }}" target="_blank" rel="noopener" aria-label="GitHub" class="footer-icon">
+            <span class="icon"><i class="fab fa-github"></i></span>
+          </a>
+          {% endif %}
+          {% if site.social.youtube %}
+          <a href="https://youtube.com/{{ site.social.youtube }}" target="_blank" rel="noopener" aria-label="YouTube" class="footer-icon">
+            <span class="icon"><i class="fab fa-youtube"></i></span>
+          </a>
+          {% endif %}
+          {% if site.social.engage %}
+          <a href="{{ site.social.engage }}" target="_blank" rel="noopener" aria-label="Engage" class="footer-icon">
+            <span class="icon"><i class="fas fa-users"></i></span>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

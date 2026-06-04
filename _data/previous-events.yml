@@ -1,0 +1,34 @@
+# Previous events archive
+# Move events from upcoming-events.yml to here once they've passed.
+# Add optional 'slides', 'recording', and 'link' fields.
+# 'link' makes the event name clickable (e.g., to a blog post recap).
+
+- name: Workshop
+  title: Introduction to Git and GitHub
+  date: April 10, 2026
+  time: 12 PM
+  mode: In-person
+  location: Science Building 101
+  slides:
+  recording: "https://youtu.be/example"
+  link: /2026-04-10-intro-to-git/
+
+- name: Workshop
+  title: Data Visualization with R
+  date: March 20, 2026
+  time: 12 PM
+  mode: In-person
+  location: Science Building 101
+  slides:
+  recording:
+  link: /2026-03-20-data-visualization-workshop/
+
+- name: Social
+  title: Welcome Back Mixer
+  date: January 15, 2026
+  time: 5 PM
+  mode: In-person
+  location: Student Center
+  slides:
+  recording:
+  link:

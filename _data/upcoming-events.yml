@@ -1,0 +1,26 @@
+# Upcoming events
+# Add new events here. Move past events to previous-events.yml.
+# start_datetime: ISO format (YYYY-MM-DDTHH:MM:SS) used for calendar links
+# end_datetime: optional, defaults to 1 hour after start
+
+- name: Workshop
+  title: "Getting Started with Python"
+  date: September 15, 2026
+  time: 12 PM
+  start_datetime: "2026-09-15T12:00:00"
+  end_datetime: "2026-09-15T13:00:00"
+  mode: In-person
+  location: Science Building 101
+  flyer:
+  zoom: https://zoom.us/j/example
+
+- name: Seminar
+  title: "Guest Speaker: Data Science in Industry"
+  date: September 22, 2026
+  time: 2 PM
+  start_datetime: "2026-09-22T14:00:00"
+  end_datetime: "2026-09-22T15:00:00"
+  mode: Hybrid
+  location: Library 205
+  flyer:
+  zoom: https://zoom.us/j/example

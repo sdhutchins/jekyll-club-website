@@ -1,0 +1,66 @@
+<div class="table-container">
+  <table class="table is-striped is-hoverable is-fullwidth">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Mode</th>
+        <th>Location</th>
+        {% if include.type == "upcoming" %}
+        <th>Zoom</th>
+        <th>Calendar</th>
+        {% else %}
+        <th>Slides</th>
+        <th>Recording</th>
+        {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for event in include.events %}
+      <tr>
+        <td>{{ event.name }}</td>
+        <td>{% if event.link %}<a href="{{ event.link | relative_url }}">{{ event.title }}</a>{% else %}{{ event.title }}{% endif %}</td>
+        <td>{{ event.date }}</td>
+        <td>{{ event.time }}</td>
+        <td>{{ event.mode }}</td>
+        <td>{{ event.location }}</td>
+        {% if include.type == "upcoming" %}
+        <td>
+          {% if event.zoom %}
+          <a href="{{ event.zoom }}" target="_blank" rel="noopener">
+            <span class="icon"><i class="fas fa-video"></i></span>
+          </a>
+          {% else %}N/A{% endif %}
+        </td>
+        <td class="has-text-centered">
+          {% assign cal_subject = event.title | default: event.name | uri_escape %}
+          {% assign cal_location = event.location | default: "" | uri_escape %}
+          {% assign cal_body = event.name | uri_escape %}
+          <a href="https://outlook.office.com/calendar/0/action/compose?subject={{ cal_subject }}&location={{ cal_location }}&body={{ cal_body }}{% if event.start_datetime %}&startdt={{ event.start_datetime }}{% endif %}{% if event.end_datetime %}&enddt={{ event.end_datetime }}{% endif %}"
+             target="_blank" rel="noopener" title="Add to Outlook Calendar">
+            <span class="icon"><i class="fas fa-calendar-plus"></i></span>
+          </a>
+        </td>
+        {% else %}
+        <td class="has-text-centered">
+          {% if event.slides %}
+          <a href="{{ event.slides | relative_url }}" download>
+            <span class="icon"><i class="fas fa-download"></i></span>
+          </a>
+          {% else %}N/A{% endif %}
+        </td>
+        <td class="has-text-centered">
+          {% if event.recording %}
+          <a href="{{ event.recording }}" target="_blank" rel="noopener">
+            <span class="icon has-text-danger"><i class="fab fa-youtube"></i></span>
+          </a>
+          {% else %}N/A{% endif %}
+        </td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
