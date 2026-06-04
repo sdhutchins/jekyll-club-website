@@ -209,11 +209,12 @@ body {
 .content a,
 a.has-text-link {
   color: var(--color-primary);
+  font-weight: 600;
 }
 
 .content a:hover,
 a.has-text-link:hover {
-  color: var(--color-dark);
+  color: var(--color-accent);
 }
 
 /* ----------------------------------------------------------------
