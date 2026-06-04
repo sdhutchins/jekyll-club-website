@@ -30,7 +30,9 @@ and social events that bring together students passionate about [your field].
 - Current President (2024-Present)
 
 {% if site.data.alumni.size > 0 %}
-<h2>Previous Executive Board Members</h2>
+
+## Previous Executive Board Members
+
 <ul>
 {% for member in site.data.alumni %}
   <li>
