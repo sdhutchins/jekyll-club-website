@@ -56,6 +56,42 @@ body {
 .content h4 {
   letter-spacing: -0.01em;
   margin-top: 2.5rem;
+  scroll-margin-top: 5.5rem;
+}
+
+.content .heading-anchor-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.45rem;
+  color: var(--color-accent);
+  font-size: 0.8em;
+  line-height: 1;
+  opacity: 0;
+  text-decoration: none;
+  transition: opacity var(--transition), color var(--transition);
+  vertical-align: middle;
+}
+
+.content h2:hover .heading-anchor-link,
+.content h3:hover .heading-anchor-link,
+.content h4:hover .heading-anchor-link,
+.content h2:focus-within .heading-anchor-link,
+.content h3:focus-within .heading-anchor-link,
+.content h4:focus-within .heading-anchor-link {
+  opacity: 1;
+}
+
+.content .heading-anchor-link:hover,
+.content .heading-anchor-link:focus-visible {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .content .heading-anchor-link {
+    opacity: 1;
+  }
 }
 
 /* ----------------------------------------------------------------

@@ -30,6 +30,46 @@ document.querySelectorAll('main img:not([loading])').forEach(function(img){img.l
 })();
 
 (function(){
+  var seenHeadingIds = {};
+
+  function slugifyHeading(text) {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-');
+  }
+
+  function uniqueHeadingId(baseId) {
+    var normalizedId = baseId || 'section';
+    var duplicateCount = seenHeadingIds[normalizedId] || 0;
+
+    seenHeadingIds[normalizedId] = duplicateCount + 1;
+
+    if (duplicateCount === 0) {
+      return normalizedId;
+    }
+
+    return normalizedId + '-' + (duplicateCount + 1);
+  }
+
+  // Add stable, visible anchor links so page subheadings can be deep-linked.
+  document.querySelectorAll('main .content h2, main .content h3, main .content h4').forEach(function(heading) {
+    heading.id = uniqueHeadingId(heading.id || slugifyHeading(heading.textContent));
+
+    if (heading.querySelector('.heading-anchor-link')) return;
+
+    var anchorLink = document.createElement('a');
+    anchorLink.className = 'heading-anchor-link';
+    anchorLink.href = '#' + heading.id;
+    anchorLink.setAttribute('aria-label', 'Link to section: ' + heading.textContent.trim());
+    anchorLink.innerHTML = '<span aria-hidden="true">#</span>';
+    heading.appendChild(anchorLink);
+  });
+})();
+
+(function(){
   var els = document.querySelectorAll('.reveal');
   if (!els.length) return;
   var io = new IntersectionObserver(function(entries){

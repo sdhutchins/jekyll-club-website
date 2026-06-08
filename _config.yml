@@ -98,6 +98,7 @@ paginate_path: "/blog/page:num/"
 
 kramdown:
   input: GFM
+  auto_ids: true
 
 # Default front matter
 defaults:
