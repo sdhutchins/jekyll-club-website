@@ -1,5 +1,10 @@
 # Jekyll Club Website Template
 
+[![Deploy Jekyll to GitHub Pages](https://github.com/sdhutchins/jekyll-club-website/actions/workflows/deploy.yml/badge.svg)](https://github.com/sdhutchins/jekyll-club-website/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Jekyll](https://img.shields.io/badge/Jekyll-4.3-CC0000?logo=jekyll&logoColor=white)
+![Bulma CSS](https://img.shields.io/badge/Bulma-CSS-00D1B2?logo=bulma&logoColor=white)
+
 A ready-to-fork Jekyll website template for student organizations and clubs,
 built with [Bulma CSS](https://bulma.io) and styled with
 [UAB brand colors](https://www.uab.edu/brandguide/university/colors).
