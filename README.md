@@ -74,10 +74,31 @@ Open <http://localhost:4000> in your browser.
 4. **Board** -- Edit `_data/board.yml` with your members and add photos to
    `assets/img/`.
 5. **Events** -- Edit `_data/upcoming-events.yml` and
-   `_data/previous-events.yml`.
+   `_data/previous-events.yml`. Upcoming events can also include optional
+   `resource_label` and `resource_url` fields for links such as tutorials,
+   articles, or registration pages.
 6. **Pages** -- Edit `about.md`, `resources.md`, `contact.md` with your
    content. Look for `<!-- Replace -->` comments.
 7. **Posts** -- Delete the example posts in `_posts/` and add your own.
+
+### Adding blog posts
+
+Use standard Jekyll post front matter in `_posts/YYYY-MM-DD-title-slug.md`.
+For posts, provide author names as separate first-name and last-name fields so
+the site can render both the visible byline and the citation format from the
+same source.
+
+```yaml
+---
+layout: post
+title: "Specific Article Title"
+subtitle: "Optional one-sentence summary"
+author_first_name: Nicola
+author_last_name: Rennie
+tags: [tag1, tag2]
+comments: false
+---
+```
 
 ### Adding nav links
 

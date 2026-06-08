@@ -4,21 +4,21 @@
       {% assign words = post.content | number_of_words %}
       {% assign minutes = words | divided_by: 200 %}
       {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
-      <p class="is-size-7 has-text-grey mb-2">
+      <p class="card-meta mb-3">
         {{ post.date | date: "%B %-d, %Y" }}
         <span class="ml-3">
           <span class="icon is-small"><i class="fas fa-clock"></i></span>
           {{ minutes }} min read
         </span>
       </p>
-      <p class="title is-5">
+      <p class="title is-5 post-card-title">
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       </p>
       {% if post.subtitle %}
-      <p class="subtitle is-6 has-text-grey">{{ post.subtitle }}</p>
+      <p class="subtitle is-6 has-text-grey post-card-subtitle">{{ post.subtitle }}</p>
       {% endif %}
-      <div class="content is-small">
-        {{ post.excerpt | strip_html | truncatewords: 30 }}
+      <div class="content is-small post-card-excerpt">
+        {{ post.excerpt | strip_html | truncatewords: 18 }}
       </div>
     </div>
     <footer class="card-footer">

@@ -5,10 +5,10 @@ layout: default
 <!-- Hero -->
 <section class="hero home-hero is-large"{% if site.hero_image and site.hero_image != "" %} style="background-image: url('{{ site.hero_image | relative_url }}');"{% endif %}>
   <div class="hero-body">
-    <div class="container has-text-centered">
+    <div class="container home-hero-copy has-text-centered">
       <h1 class="title has-text-white">{{ site.title }}</h1>
       <p class="subtitle has-text-white mt-5">{{ site.description }}</p>
-      <div class="buttons is-centered mt-6">
+      <div class="buttons is-centered mt-6 home-hero-actions">
         <a href="{{ '/events/' | relative_url }}" class="button is-gold is-medium">
           View Events
         </a>
@@ -24,7 +24,7 @@ layout: default
 {% if site.data.upcoming-events.size > 0 %}
 <section class="section">
   <div class="container">
-    <div class="has-text-centered mb-6 reveal">
+    <div class="home-section-header mb-6 reveal">
       <h2 class="title is-3 section-heading">Upcoming Events</h2>
     </div>
     <div class="columns is-multiline is-centered">
@@ -32,8 +32,15 @@ layout: default
       <div class="column is-4 reveal reveal-delay-{{ forloop.index }}">
         <div class="card event-card">
           <div class="card-content">
-            <p class="title is-5 mb-2">{{ event.title }}</p>
-            <p class="is-size-7 has-text-weight-semibold has-text-grey-dark mb-3">{{ event.name }}</p>
+            <p class="title is-5 mb-2">
+              {{ event.title }}
+              {% if event.resource_url %}
+                <a href="{{ event.resource_url }}" class="event-resource-link" target="_blank" rel="noopener"{% if event.resource_label %} title="{{ event.resource_label }}" aria-label="{{ event.resource_label }}"{% endif %}>
+                  <span class="icon is-small"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                </a>
+              {% endif %}
+            </p>
+            <p class="card-kicker mb-3">{{ event.name }}</p>
             <div class="event-meta">
               <p class="mb-1">
                 <span class="icon-text">
@@ -89,7 +96,7 @@ layout: default
 {% if recent_posts.size > 0 %}
 <section class="section section-alt">
   <div class="container">
-    <div class="has-text-centered mb-6 reveal">
+    <div class="home-section-header mb-6 reveal">
       <h2 class="title is-3 section-heading">Latest Posts</h2>
     </div>
     <div class="columns is-multiline is-centered">

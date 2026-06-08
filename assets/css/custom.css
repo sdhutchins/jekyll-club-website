@@ -193,17 +193,24 @@ body {
 .home-hero .title {
   font-weight: 800;
   letter-spacing: -0.03em;
-  font-size: 3.5rem;
-  line-height: 1.1;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.98;
+  max-width: 11ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .home-hero .subtitle {
   opacity: 0.92;
-  max-width: 560px;
+  max-width: 44rem;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.7;
   font-size: 1.15rem;
+}
+
+.home-hero-copy {
+  max-width: 64rem;
 }
 
 .home-logo {
@@ -217,6 +224,22 @@ body {
   }
   .home-hero .hero-body {
     padding: 4rem 1.5rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .home-hero-copy {
+    text-align: left !important;
+  }
+
+  .home-hero .title,
+  .home-hero .subtitle {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .home-hero-actions {
+    justify-content: flex-start !important;
   }
 }
 
@@ -284,8 +307,9 @@ body {
   position: relative;
   display: inline-block;
   margin-bottom: 2.5rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
 .section-heading::after {
@@ -298,6 +322,15 @@ body {
   height: 4px;
   background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
   border-radius: 4px;
+}
+
+.home-section-header {
+  text-align: center;
+}
+
+.home-section-header .section-heading::after {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* ----------------------------------------------------------------
@@ -341,11 +374,45 @@ a.has-text-link:hover {
 
 .event-meta {
   color: #6b7280;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
+  line-height: 1.6;
 }
 
 .event-meta .icon {
   color: var(--color-primary);
+}
+
+.card-kicker,
+.card-meta {
+  color: #5b6472;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.event-card .title,
+.post-card-title {
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+
+.event-resource-link {
+  margin-left: 0.3rem;
+  color: var(--color-primary);
+  font-size: 0.85em;
+  line-height: 1;
+  text-decoration: none;
+  vertical-align: baseline;
+}
+
+.event-resource-link:hover {
+  color: var(--color-accent);
+}
+
+.page-hero .card-kicker {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 /* ----------------------------------------------------------------
@@ -369,12 +436,35 @@ a.has-text-link:hover {
 
 .post-card .card-content {
   flex: 1;
-  padding: 1.75rem;
+  padding: 1.5rem 1.5rem 1.1rem;
 }
 
 .post-card .title a {
   color: var(--color-primary);
   transition: color var(--transition);
+}
+
+.post-card-subtitle {
+  line-height: 1.45;
+  margin-bottom: 0.55rem !important;
+}
+
+.post-card-excerpt {
+  color: #364152;
+  line-height: 1.6;
+  margin-bottom: 0 !important;
+}
+
+.post-author-note {
+  padding-top: 1.25rem;
+  border-top: 1px solid #e8e8e8;
+}
+
+.post-author-name {
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .post-card .title a:hover {
@@ -511,6 +601,89 @@ a.has-text-link:hover {
 
 .board-links a:hover {
   color: var(--color-accent);
+}
+
+.alumni-grid {
+  margin-top: 0.5rem;
+}
+
+.alumni-card {
+  height: 100%;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: none;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.alumni-card:hover {
+  border-color: #d8dee6;
+  background-color: #fcfcfd;
+}
+
+.alumni-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.alumni-role {
+  color: #5b6472;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.alumni-years {
+  flex-shrink: 0;
+  padding: 0.12rem 0.42rem;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid #d9e0e8;
+  color: #5b6472;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.alumni-current-position {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: #364152;
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.alumni-links {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-top: 0.45rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid #f1f3f6;
+}
+
+.alumni-links a {
+  color: #5b6472;
+  font-size: 0.82rem;
+  transition: color var(--transition), transform var(--transition);
+}
+
+.alumni-links a:hover {
+  color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+@media screen and (max-width: 768px) {
+  .alumni-card-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -683,4 +856,3 @@ a.has-text-link:hover {
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
-

@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "Workshop Recap"
-subtitle: Data Visualization with R
+title: "Data Visualization with R"
+subtitle: Practical plotting guidance for research figures and presentations.
+author_first_name: Executive
+author_last_name: Board
 tags: [workshop, r, data-visualization]
 comments: false
 ---

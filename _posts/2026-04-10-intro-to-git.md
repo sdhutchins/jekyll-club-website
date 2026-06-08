@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "Workshop Recap"
-subtitle: Introduction to Git and GitHub
+title: "Introduction to Git and GitHub"
+subtitle: A hands-on primer on version control, pull requests, and merge conflicts.
+author_first_name: Executive
+author_last_name: Board
 tags: [workshop, git, version-control]
 image: ""
 comments: false

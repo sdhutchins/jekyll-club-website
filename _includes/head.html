@@ -47,14 +47,19 @@
 </script>
 {% if page.layout == "post" %}
 <script type="application/ld+json">
+{% if page.author_first_name and page.author_last_name %}
+{% assign page_author = page.author_first_name | append: ' ' | append: page.author_last_name %}
+{% else %}
+{% assign page_author = page.author | default: site.author %}
+{% endif %}
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": {{ page.title | jsonify }},
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "author": {
-    "@type": "Organization",
-    "name": {{ site.author | jsonify }}
+    "@type": "Person",
+    "name": {{ page_author | jsonify }}
   },
   "url": "{{ page.url | absolute_url }}",
   "description": {{ page.excerpt | strip_html | truncatewords: 50 | jsonify }}

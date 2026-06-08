@@ -11,6 +11,7 @@
         {% if include.type == "upcoming" %}
         <th>Zoom</th>
         <th>Calendar</th>
+        <th>Resource</th>
         {% else %}
         <th>Slides</th>
         <th>Recording</th>
@@ -21,7 +22,9 @@
       {% for event in include.events %}
       <tr>
         <td>{{ event.name }}</td>
-        <td>{% if event.link %}<a href="{{ event.link | relative_url }}">{{ event.title }}</a>{% else %}{{ event.title }}{% endif %}</td>
+        <td>
+          {% if event.link %}<a href="{{ event.link | relative_url }}">{{ event.title }}</a>{% else %}{{ event.title }}{% endif %}
+        </td>
         <td>{{ event.date }}</td>
         <td>{{ event.time }}</td>
         <td>{{ event.mode }}</td>
@@ -42,6 +45,11 @@
              target="_blank" rel="noopener" title="Add to Outlook Calendar">
             <span class="icon"><i class="fas fa-calendar-plus"></i></span>
           </a>
+        </td>
+        <td>
+          {% if event.resource_url and event.resource_label %}
+          <a href="{{ event.resource_url }}" target="_blank" rel="noopener">{{ event.resource_label }}</a>
+          {% else %}N/A{% endif %}
         </td>
         {% else %}
         <td class="has-text-centered">

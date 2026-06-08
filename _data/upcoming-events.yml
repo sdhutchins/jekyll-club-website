@@ -2,6 +2,8 @@
 # Add new events here. Move past events to previous-events.yml.
 # start_datetime: ISO format (YYYY-MM-DDTHH:MM:SS) used for calendar links
 # end_datetime: optional, defaults to 1 hour after start
+# resource_label/resource_url: optional external resource for attendees
+# (for example, "Article", "Tutorial", or "Registration")
 
 - name: Workshop
   title: "Getting Started with Python"
@@ -13,6 +15,8 @@
   location: Science Building 101
   flyer:
   zoom: https://zoom.us/j/example
+  resource_label: Tutorial
+  resource_url: https://example.com/python-tutorial
 
 - name: Seminar
   title: "Guest Speaker: Data Science in Industry"
@@ -24,3 +28,5 @@
   location: Library 205
   flyer:
   zoom: https://zoom.us/j/example
+  resource_label:
+  resource_url:

@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "Social Event"
-subtitle: Welcome Back Mixer Recap
+title: "Welcome Back Mixer Recap"
+subtitle: A community social to kick off the spring semester.
+author_first_name: Executive
+author_last_name: Board
 tags: [social, community]
 comments: false
 ---
